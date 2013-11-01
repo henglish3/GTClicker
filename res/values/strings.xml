@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GTClicker</string>
+    <string name="edit_name">Username</string>
+    <string name="edit_pw">password</string>
+    <string name="button_login">Log In</string>
+    <string name="hello">Hello World!</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="search_hint">hint</string>
+    <string name="menu">Menu</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_loginShown">Login Shown</string>
+    <string name="based">Based on the GTMob App Clicker</string>
+    <string name="ian">Native Android Dev by Team Androdian</string>
+    <string name="harry">Harrison English</string>
+    <string name="foggy">Michael Fogg</string>
+    <string name="version">Version 1.0</string>
+    <string name="login_button_text">Login</string>
+
+</resources>

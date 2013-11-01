@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/darkgray"
+        >
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:background="@color/blue"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/menu_right_margin"
+            android:paddingTop="@dimen/menu_vertical_margin"
+            android:paddingBottom="@dimen/menu_vertical_margin"
+            android:layout_alignParentBottom="true">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:id="@+id/textView"
+                android:layout_gravity="center"
+                android:textColor="@color/gold"
+                android:layout_weight="6"/>
+        ></LinearLayout>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            />
+
+    <Button
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:onClick="goToLogin"
+            />
+    <Button
+            android:id="@+id/classBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Class"
+            />
+    <Button
+            android:id="@+id/about"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:onClick="goToAbout"
+            />
+
+</LinearLayout>
+
