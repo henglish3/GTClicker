@@ -42,6 +42,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Class"
+            android:onClick="goToClass"
             />
     <Button
             android:id="@+id/about"

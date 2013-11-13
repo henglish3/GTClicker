@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:background="@color/darkgray">
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="1dp"
+            android:background="@color/darkergray">
+        >
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/blue"
+                android:layout_margin="20dp">
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note to the Leader."
+                    android:layout_gravity="center"/>
+            <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/note"
+                    android:hint="Write note here"/>
+            <Button
+                    android:id="@+id/dismiss"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

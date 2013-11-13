@@ -13,12 +13,13 @@ import android.widget.EditText;
  * Date: 10/23/13
  * Time: 1:17 AM
  */
-public class loginActivity extends Activity {
+public class classActivity extends Activity {
+    public final static String EXTRA_MESSAGE = "com.example.GTClicker.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_class);
 
         Button btnClose = (Button) findViewById(R.id.menuBtn);
 
@@ -29,15 +30,16 @@ public class loginActivity extends Activity {
                 finish();
             }
         });
+        }
+
+
+
+    public void goToQuestion(View view) {
+        Intent intent = new Intent(this, questionActivity.class);
+        startActivity(intent);
     }
 
-    /** Called when the user clicks the Send button */
-    public void performLogin(View view) {
-        // Do something in response to button
 
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://dev.m.gatech.edu/login?url=gtclicker://loggedin&sessionTransfer=window"));
-        startActivity(myIntent);
-    }
 
 
 }

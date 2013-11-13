@@ -19,11 +19,11 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title_activity_login"
+                android:text="@string/title_activity_question"
                 android:id="@+id/textView"
                 android:layout_gravity="center"
                 android:textColor="@color/gold"
-                android:layout_weight="6"/>
+                android:layout_weight="5"/>
         <Button
                 android:layout_width="@dimen/menu_btn_width"
                 android:layout_height="wrap_content"
@@ -32,22 +32,46 @@
                 android:onClick="goToMenu"
                 android:layout_gravity="right|center_vertical"
                 android:layout_weight="1"/>
-        </LinearLayout>
+    </LinearLayout>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:id="@+id/textView"
+            android:id="@+id/textViewBlank"
             android:layout_gravity="center"/>
 
-
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/closed_button_text"
+            android:id="@+id/textView1"
+            android:layout_gravity="center"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewBlank"
+            android:layout_gravity="center"/>
     <Button
-            android:id="@+id/login_button"
+            android:id="@+id/questionbtn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/login_button_text"
-            android:onClick="performLogin" />
+            android:text="Change Answer"
+            android:onClick="changeAnswer"
+            />
+
+    <Button
+            android:id="@+id/ntlBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ntl_button_text"
+            android:onClick="note"
+            />
+    <Button
+            android:id="@+id/refreshbtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/refresh_button_text"
+            />
 
 </LinearLayout>

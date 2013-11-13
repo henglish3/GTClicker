@@ -32,7 +32,13 @@
                 android:onClick="goToMenu"
                 android:layout_gravity="right|center_vertical"
                 android:layout_weight="1"/>
-        </LinearLayout>
+    </LinearLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textView"
+            android:layout_gravity="center"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,13 +47,16 @@
             android:layout_gravity="center"/>
 
 
+    <EditText android:id="@+id/password"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:hint="Enter Class Code"
+            />
     <Button
-            android:id="@+id/login_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/login_button_text"
-            android:onClick="performLogin" />
+            android:text="Submit"
+            android:onClick="goToQuestion"
+            />
 
 </LinearLayout>

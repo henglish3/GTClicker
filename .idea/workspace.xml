@@ -24,26 +24,63 @@
     </option>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dff1de8-cab8-4340-bd8d-162610aca25b" name="Default" comment="" />
+    <list default="true" id="0dff1de8-cab8-4340-bd8d-162610aca25b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/menu/main_activity_actions.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/AboutActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/Clicker.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/CommentModel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/CommentsArrayAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/DisplayMessageActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/ListCommentsActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/example/GTClicker/loginActivity.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/example/GTClicker/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/example/GTClicker/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/res/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="GTClicker.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/main.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506976173" ignored="false" />
-    <file path="/Clicker.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382643873521" ignored="false" />
+    <file path="/main.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383324526821" ignored="false" />
+    <file path="/Clicker.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383323828251" ignored="false" />
     <file path="/DisplayMessageActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506922186" ignored="false" />
-    <file path="/AndroidManifest.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383288653142" ignored="false" />
+    <file path="/AndroidManifest.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384378008884" ignored="false" />
     <file path="/a.html" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382493044066" ignored="false" />
-    <file path="/Dummy.txt" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383288016895" ignored="false" />
+    <file path="/Dummy.txt" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384374114865" ignored="false" />
     <file path="/AboutActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382644499553" ignored="false" />
     <file path="/activity_about.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506751292" ignored="false" />
-    <file path="/strings.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506778906" ignored="false" />
-    <file path="/colors.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382503230683" ignored="false" />
+    <file path="/strings.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383323480212" ignored="false" />
+    <file path="/colors.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383326598752" ignored="false" />
     <file path="/dimens.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506197081" ignored="false" />
-    <file path="/activity_login.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382506496476" ignored="false" />
+    <file path="/activity_login.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383322828786" ignored="false" />
     <file path="/loginActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383287399519" ignored="false" />
     <file path="/main_activity_actions.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1382643930865" ignored="false" />
     <file path="$PROJECT_DIR$/../usercomments/AndroidManifest.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383288684395" ignored="false" />
     <file path="$PROJECT_DIR$/../usercomments/project.properties" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383288417315" ignored="false" />
     <file path="$PROJECT_DIR$/../usercomments/res/values/strings.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383288417315" ignored="false" />
+    <file path="/questionActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383329819424" ignored="false" />
+    <file path="/activity_Question.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383323677712" ignored="false" />
+    <file path="/classActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383324890417" ignored="false" />
+    <file path="/activity_class.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383324745486" ignored="false" />
+    <file path="/popup.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383326611245" ignored="false" />
+    <file path="/activity_question.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383329704140" ignored="false" />
+    <file path="/popup_ntl.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1383329581856" ignored="false" />
+    <file path="$PROJECT_DIR$/../LocationUpdates/AndroidManifest.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376309554" ignored="false" />
+    <file path="$PROJECT_DIR$/../LocationUpdates/project.properties" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376139079" ignored="false" />
+    <file path="$PROJECT_DIR$/../LocationUpdates/res/values/strings.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376309554" ignored="false" />
+    <file path="$PROJECT_DIR$/../LocationUpdates/src/com/example/LocationUpdates/LocationServiceErrorMessages.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376332026" ignored="false" />
+    <file path="/LocationServiceErrorMessages.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376885889" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/res/values/strings.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376513556" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/src/com/example/location/MyActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376428683" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/build.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376428683" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/AndroidManifest.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376513556" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/res/layout/main.xml" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376428683" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/src/com/example/location/LocationServiceErrorMessages.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376890919" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/src/com/example/location/LocationUtils.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376535105" ignored="false" />
+    <file path="$PROJECT_DIR$/../location/src/com/example/location/MainActivity.java" changelist="0dff1de8-cab8-4340-bd8d-162610aca25b" time="1384376543132" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +96,7 @@
   </component>
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -104,40 +142,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CommentsArrayAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/CommentsArrayAdapter.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="63" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+            <state line="34" column="70" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.54198474">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="57" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
+      <file leaf-file-name="activity_class.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_class.xml">
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="54" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+            <state line="50" column="44" selection-start="2123" selection-end="2123" vertical-scroll-proportion="-8.962963">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/loginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="96" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.8238748">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -149,30 +170,38 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_about.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_display_message.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/DisplayMessageActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/Clicker.java" />
-        <option value="$PROJECT_DIR$/res/menu/main_activity_actions.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/AboutActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/ListCommentsActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/CommentModel.java" />
-        <option value="$PROJECT_DIR$/src/com/example/GTClicker/CommentsArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/res/layout/list_comments.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/GTClicker/Clicker.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_Question.xml" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_class.xml" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/res/layout/popup.xml" />
+        <option value="$PROJECT_DIR$/res/layout/popup_ntl.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_question.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/GTClicker/questionActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/GTClicker/DisplayMessageActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/example/GTClicker/loginActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/GTClicker/classActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
+    <option name="x" value="72" />
     <option name="y" value="22" />
     <option name="width" value="1000" />
     <option name="height" value="760" />
@@ -265,7 +294,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -320,11 +349,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="GTClicker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GTClicker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,14 +405,14 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Developing/GT-Navigate" />
     <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="2c1b7379" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Android Application.GTClicker">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -400,6 +447,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -425,19 +485,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -563,11 +610,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="22" width="1000" height="760" extended-state="0" />
-    <editor active="true" />
+    <frame x="72" y="22" width="1000" height="760" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955974" sideWeight="0.8625" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -585,7 +633,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.8625" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.8625" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955974" sideWeight="0.8625" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -657,66 +704,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="67" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_display_message.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="57" selection-start="1004" selection-end="1004" vertical-scroll-proportion="-9.444445" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/main_activity_actions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="51" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/Clicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+        <state line="24" column="60" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_about.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="29" selection-start="1474" selection-end="1481" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/AboutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="474" selection-end="748" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/DisplayMessageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="31" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/ListCommentsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="28" selection-start="4476" selection-end="4476" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/CommentModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="24" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0">
+        <state line="7" column="25" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -726,14 +723,47 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="45" selection-start="2852" selection-end="2852" vertical-scroll-proportion="-17.296297">
+        <state line="42" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="43" column="37" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/popup.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="3064" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_question.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="56" selection-start="2549" selection-end="2549" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/popup_ntl.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="71" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -743,36 +773,25 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="67" selection-start="161" selection-end="161" vertical-scroll-proportion="0.06036217" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/CommentsArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="63" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+        <state line="2" column="67" selection-start="161" selection-end="161" vertical-scroll-proportion="0.06036217">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_class.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="57" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
+        <state line="50" column="44" selection-start="2123" selection-end="2123" vertical-scroll-proportion="-8.962963">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="54" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+        <state line="34" column="70" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.54198474">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/GTClicker/loginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="96" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.8238748">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

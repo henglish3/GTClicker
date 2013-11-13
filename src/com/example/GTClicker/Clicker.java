@@ -20,14 +20,19 @@ public class Clicker extends Activity {
     }
 
 
-    public void goToAbout(View view) {
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
     public void goToLogin(View view) {
         Intent intent = new Intent(this, loginActivity.class);
         startActivity(intent);
     }
+    public void goToClass(View view) {
+        Intent intent = new Intent(this, classActivity.class);
+        startActivity(intent);
+    }
+    public void goToAbout(View view) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
 
     public void goToMenu(View view) {
         super.onBackPressed();
