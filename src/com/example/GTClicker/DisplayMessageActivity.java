@@ -4,9 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Build;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -38,13 +41,42 @@ public class DisplayMessageActivity extends Activity {
 
 }
 
+    //Options menu stuff
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.rootmenu,menu);
+        return true;
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
+
+        switch(item.getItemId()){
+            case R.id.main:
                 NavUtils.navigateUpFromSameTask(this);
-                return true;
+                break;
+            case R.id.login:
+                Intent i2 = new Intent(this, loginActivity.class);
+                startActivity(i2);
+                break;
+            case R.id.aboutUS:
+                Intent i3 = new Intent(this, AboutActivity.class);
+                startActivity(i3);
+                break;
+            case R.id.preferences:
+
+                break;
         }
-        return super.onOptionsItemSelected(item);
+
+        return false;
+    }
+
+    //Menu Button
+    public void onMenuButtonClick(View view) {
+        this.openOptionsMenu();
+
     }
 }

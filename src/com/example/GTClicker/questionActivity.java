@@ -1,12 +1,13 @@
 package com.example.GTClicker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v4.app.NavUtils;
+import android.view.*;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.view.LayoutInflater;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 
@@ -21,20 +22,11 @@ public class questionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-
+        //finds question button
         Button questionBtn = (Button) findViewById(R.id.questionbtn);
-        //when play is clicked show stop button and hide play button
+
+        //only shows change answer button once question has been asked
         questionBtn.setVisibility(View.GONE);
-
-        Button btnClose = (Button) findViewById(R.id.menuBtn);
-
-        btnClose.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                //Closing SecondScreen Activity
-                finish();
-            }
-        });
 
         final Button btnOpenPopup = (Button)findViewById(R.id.refreshbtn);
         btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
@@ -66,6 +58,9 @@ public class questionActivity extends Activity {
             }});
     }
 
+
+
+    //Multiple choice answer question.
     public void onRadioButtonClicked(View view) {
 
         TextView t1 =(TextView)findViewById(R.id.textView1);
@@ -97,6 +92,7 @@ public class questionActivity extends Activity {
         }
     }
 
+    //change Answer button
     public void changeAnswer(View v) {
         Button btnOpenPopup = (Button)findViewById(R.id.questionbtn);
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -116,6 +112,8 @@ public class questionActivity extends Activity {
                 popupWindow.showAsDropDown(btnOpenPopup, 50, -30);
 
     }
+
+    //Note to leader method
     public void note(View v) {
         Button btnOpenPopup = (Button)findViewById(R.id.ntlBtn);
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -133,6 +131,46 @@ public class questionActivity extends Activity {
             }});
 
         popupWindow.showAsDropDown(btnOpenPopup, 50, -30);
+
+    }
+
+
+    //Options menu stuff
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.rootmenu,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.main:
+                NavUtils.navigateUpFromSameTask(this);
+                break;
+            case R.id.login:
+                Intent i2 = new Intent(this, loginActivity.class);
+                startActivity(i2);
+                break;
+            case R.id.aboutUS:
+                Intent i3 = new Intent(this, AboutActivity.class);
+                startActivity(i3);
+                break;
+            case R.id.preferences:
+
+                break;
+        }
+
+        return false;
+    }
+
+    //Menu Button
+    public void onMenuButtonClick(View view) {
+        this.openOptionsMenu();
 
     }
 }

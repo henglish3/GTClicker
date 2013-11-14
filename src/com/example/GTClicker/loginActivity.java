@@ -3,13 +3,12 @@ package com.example.GTClicker;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.net.Uri;
-import android.widget.EditText;
 
 /**
  * User: henglish3
@@ -22,16 +21,6 @@ public class loginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        Button btnClose = (Button) findViewById(R.id.menuBtn);
-
-        btnClose.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                //Closing SecondScreen Activity
-                finish();
-            }
-        });
     }
 
     /** Called when the user clicks the Send button */
@@ -42,6 +31,7 @@ public class loginActivity extends Activity {
         startActivity(myIntent);
     }
 
+    //Options menu stuff
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -56,7 +46,7 @@ public class loginActivity extends Activity {
 
         switch(item.getItemId()){
             case R.id.main:
-                finish();
+                NavUtils.navigateUpFromSameTask(this);
                 break;
             case R.id.login:
                 Intent i2 = new Intent(this, loginActivity.class);
@@ -74,5 +64,10 @@ public class loginActivity extends Activity {
         return false;
     }
 
+    //Menu Button
+    public void onMenuButtonClick(View view) {
+        this.openOptionsMenu();
+
+    }
 
 }

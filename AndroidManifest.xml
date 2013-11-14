@@ -5,7 +5,7 @@
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="15"/>
     <application android:label="@string/app_name"
-                 android:icon="@drawable/ic_launcher"
+                 android:icon="@drawable/clicker_icon"
                  android:theme="@android:style/Theme.NoTitleBar"
             >
         <activity android:name="Clicker"
@@ -16,37 +16,48 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.GTClicker.DisplayMessageActivity"
+        <activity android:name=".DisplayMessageActivity"
                   android:label="@string/title_activity_display_message">
                   <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.example.GTClicker.Clicker" />
                   </activity>
 
-        <activity
-                android:name="com.example.GTClicker.AboutActivity"
-                android:label="@string/title_activity_about"
-                android:theme="@android:style/Theme.Dialog">
-            <intent-filter>
-                <action android:name="com.example.GTClicker.ABOUT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+        <activity android:name=".AboutActivity"
+                  android:label="@string/title_activity_about"
+                  android:theme="@android:style/Theme.Dialog">
+                <intent-filter>
+                    <action android:name="com.example.GTClicker.ABOUT"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                </intent-filter>
         </activity>
-        <activity android:name=".loginActivity"/>
-        <activity android:name=".ListCommentsActivity"/>
 
-        <activity android:name=".questionActivity"/>
+        <activity android:name=".loginActivity">
+                  <meta-data android:name="android.support.PARENT_ACTIVITY"
+                      android:value="com.example.GTClicker.Clicker"/>
+        </activity>
+
+        <activity android:name=".ListCommentsActivity">
+                  <meta-data android:name="android.support.PARENT_ACTIVITY"
+                   android:value="com.example.GTClicker.Clicker"/>
+        </activity>
+
+        <activity android:name=".questionActivity">
+                  <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value="com.example.GTClicker.Clicker"/>
+        </activity>
+
         <activity android:name=".classActivity" >
-                 <intent-filter>
+                  <intent-filter>
                      <category android:name="android.intent.category.BROWSABLE"/>
                      <category android:name="android.intent.category.DEFAULT"/>
                      <data
-
-                     android:host="loggedin"
-                     android:scheme="gtclicker" />
+                        android:host="loggedin"
+                        android:scheme="gtclicker" />
                  </intent-filter>
-
-                </activity>
+                 <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value="com.example.GTClicker.Clicker"/>
+        </activity>
 
     </application>
 </manifest>
