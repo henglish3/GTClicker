@@ -4,10 +4,9 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="15"/>
-    <application android:label="@string/app_name"
-                 android:icon="@drawable/ic_launcher"
-                 android:theme="@android:style/Theme.NoTitleBar"
-            >
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
+            android:theme="@android:style/Theme.NoTitleBar">
         <activity android:name="Clicker"
                   android:label="@string/app_name">
             <intent-filter>
@@ -26,26 +25,29 @@
         <activity
                 android:name="com.example.GTClicker.AboutActivity"
                 android:label="@string/title_activity_about"
-                android:theme="@android:style/Theme.Dialog"
-                android:feature="windowNoTitle">
+                android:theme="@android:style/Theme.Dialog">
             <intent-filter>
                 <action android:name="com.example.GTClicker.ABOUT"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity android:name=".loginActivity"/>
-        <activity android:name=".ListCommentsActivity"/>
+        <activity android:name=".ListCommentsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="loggedin"
+                    android:scheme="gtclicker" />
+            </intent-filter>
+            </activity>
 
         <activity android:name=".questionActivity"/>
         <activity android:name=".classActivity" >
-                 <intent-filter>
-                     <category android:name="android.intent.category.BROWSABLE"/>
-                     <category android:name="android.intent.category.DEFAULT"/>
-                     <data
-
-                     android:host="loggedin"
-                     android:scheme="gtclicker" />
-                 </intent-filter>
+                 
 
                 </activity>
 

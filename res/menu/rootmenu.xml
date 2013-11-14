@@ -4,6 +4,18 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+            android:title="Main Menu"
+            android:id="@+id/main"
+            />
+    <item
+            android:title="Log in"
+            android:id="@+id/login"
+            />
+    <item
+            android:title="Classes"
+            android:id="@+id/classes"
+            />
+    <item
         android:title="About Us"
         android:id="@+id/aboutUS"
         />

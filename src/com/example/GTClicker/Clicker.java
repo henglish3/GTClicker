@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.graphics.Color;
 
 public class Clicker extends Activity {
 
@@ -36,26 +35,30 @@ public class Clicker extends Activity {
     }
 
 
-    public void goToMenu(View view) {
-        super.onBackPressed();
-    }
-
-     @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-         super.onCreateOptionsMenu(menu);
-         MenuInflater blowUp = getMenuInflater();
-         blowUp.inflate(R.menu.rootmenu,menu);
-         return true;
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.rootmenu,menu);
+        return true;
 
-     }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId()){
+            case R.id.main:
+                Intent i1 = new Intent(this, Clicker.class);
+                startActivity(i1);
+                break;
+            case R.id.login:
+                Intent i2 = new Intent(this, loginActivity.class);
+                startActivity(i2);
+                break;
             case R.id.aboutUS:
-                Intent intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
+                Intent i3 = new Intent(this, AboutActivity.class);
+                startActivity(i3);
                 break;
             case R.id.preferences:
 
@@ -63,6 +66,5 @@ public class Clicker extends Activity {
         }
 
         return false;
-        }
-
+    }
 }
