@@ -33,7 +33,7 @@
             android:onClick="goToMenu"
             android:layout_gravity="right|center_vertical"
             android:layout_weight="1"/>
-        ></LinearLayout>
+        </LinearLayout>
 
     <TextView
         android:id="@+id/textViewBased"
