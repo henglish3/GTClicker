@@ -46,8 +46,14 @@
             android:id="@+id/textView"
             android:layout_gravity="center"/>
 
+    <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
 
-    <EditText android:id="@+id/password"
+    <EditText android:id="@+id/class_code"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:hint="Enter Class Code"
