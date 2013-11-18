@@ -31,23 +31,25 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int A=0x7f080012;
-        public static final int B=0x7f080013;
-        public static final int C=0x7f080014;
-        public static final int D=0x7f080015;
+        public static final int A=0x7f080014;
+        public static final int B=0x7f080015;
+        public static final int C=0x7f080016;
+        public static final int D=0x7f080017;
         public static final int LinearLayout1=0x7f080000;
-        public static final int about=0x7f080011;
-        public static final int classBtn=0x7f080010;
-        public static final int dismiss=0x7f080016;
-        public static final int label=0x7f08000e;
-        public static final int login=0x7f08000f;
+        public static final int about=0x7f080013;
+        public static final int classBtn=0x7f080012;
+        public static final int dismiss=0x7f080018;
+        public static final int editText1=0x7f08000b;
+        public static final int label=0x7f080010;
+        public static final int login=0x7f080011;
         public static final int login_button=0x7f080009;
         public static final int menuBtn=0x7f080002;
-        public static final int note=0x7f080017;
-        public static final int ntlBtn=0x7f08000c;
+        public static final int note=0x7f080019;
+        public static final int ntlBtn=0x7f08000d;
         public static final int password=0x7f080008;
-        public static final int questionbtn=0x7f08000b;
-        public static final int refreshbtn=0x7f08000d;
+        public static final int prevSub=0x7f08000f;
+        public static final int questionbtn=0x7f08000c;
+        public static final int refreshbtn=0x7f08000e;
         public static final int textTeamMbr1=0x7f080005;
         public static final int textTeamMbr2=0x7f080006;
         public static final int textVersion=0x7f080007;
@@ -62,10 +64,11 @@ public final class R {
         public static final int activity_display_message=0x7f030002;
         public static final int activity_login=0x7f030003;
         public static final int activity_question=0x7f030004;
-        public static final int list_comments=0x7f030005;
-        public static final int main=0x7f030006;
-        public static final int popup=0x7f030007;
-        public static final int popup_ntl=0x7f030008;
+        public static final int class_select=0x7f030005;
+        public static final int list_comments=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int popup=0x7f030008;
+        public static final int popup_ntl=0x7f030009;
     }
     public static final class menu {
         public static final int main_activity_actions=0x7f070000;
@@ -87,6 +90,7 @@ public final class R {
         public static final int question_button_text=0x7f060013;
         public static final int refresh_button_text=0x7f060015;
         public static final int search_hint=0x7f060006;
+        public static final int submit_answer=0x7f060017;
         public static final int title_activity_about=0x7f060009;
         public static final int title_activity_display_message=0x7f060005;
         public static final int title_activity_login=0x7f06000a;

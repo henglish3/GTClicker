@@ -9,7 +9,7 @@ import android.view.MenuInflater;
 
 public class Clicker extends Activity {
 
-
+	public final static String EXTRA_MESSAGE = "com.example.GTClicker.MESSAGE";
     /**
      * Called when the activity is first created.
      */
@@ -32,6 +32,7 @@ public class Clicker extends Activity {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
+
 
 
     public void goToMenu(View view) {

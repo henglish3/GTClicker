@@ -35,7 +35,7 @@ public class loginActivity extends Activity {
     public void performLogin(View view) {
         // Do something in response to button
 
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://dev.m.gatech.edu/login?url=gtclicker://loggedin&sessionTransfer=window"));
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://dev.m.gatech.edu/login/private?url=gtclicker://loggedin&sessionTransfer=window"));
         startActivity(myIntent);
     }
 
