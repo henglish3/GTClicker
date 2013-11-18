@@ -1,6 +1,7 @@
 package com.example.GTClicker;
 
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +13,16 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -46,6 +51,7 @@ public class questionActivity extends Activity {
 	String checkSub = "http://dev.m.gatech.edu/w/clicker/content/api/isopensubmissions/";
 	String getAns = "http://dev.m.gatech.edu/w/clicker/content/api/myanswers/";
 	String subAns = "http://dev.m.gatech.edu/w/clicker/content/api/answer/";
+	//String subAns = "http://dev.m.gatech.edu/w/usercomments/content/api/comment/31";
 	String classID = "";
 	
     @Override
@@ -140,39 +146,49 @@ protected String doInBackground(String... params) {
 	client = new DefaultHttpClient();
 	
 	try {
-		URI api = new URI(subAns);
-		HttpClient client = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost();
-		httppost.setURI(api);
-		/*
-		CookieStore cookieStore = new BasicCookieStore(); 
-		BasicClientCookie cookie = new BasicClientCookie(sessionName, sessionId);
-		cookieStore.addCookie(cookie); 
+			String str = "";
+		    //--This code works for updating a record from the feed--
+		    HttpPut httpPut = new HttpPut(subAns);
+		    EditText edittext = (EditText) findViewById(R.id.editText1);
+		    JSONStringer json = new JSONStringer()
+		    .object() 
+		       .key("answer").array().value(edittext.getText().toString()).endArray()
+		       .key("classId").value(classID)
+		    .endObject();
+
+		    StringEntity entity = new StringEntity(json.toString());
+		    //StringEntity entity = new StringEntity("{\"answer\":\"[\"Oi\"]\",\"classId\":\"XLS0816104242201308.201308\"}");
+		    Log.i("myserverentry",entity.toString());
+		    entity.setContentType("application/json;charset=UTF-8");//text/plain;charset=UTF-8
+		    entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json;charset=UTF-8"));
+		    httpPut.setEntity(entity); 
+		    httpPut.setHeader("Cookie", ListCommentsActivity.sessionName+"="+ListCommentsActivity.sessionId);
+
+		    // Send request to WCF service 
+		    DefaultHttpClient httpClient = new DefaultHttpClient();
+		    
+		    HttpResponse response = httpClient.execute(httpPut);                     
+		    HttpEntity entity1 = response.getEntity(); 
+		    Log.i("myserv",EntityUtils.toString(entity));
+
+		    if(entity1 != null&&(response.getStatusLine().getStatusCode()==201||response.getStatusLine().getStatusCode()==200))
+		    {
+		         //--just so that you can view the response, this is optional--
+		         int sc = response.getStatusLine().getStatusCode();
+		         
+		         String sl = response.getStatusLine().getReasonPhrase();
+		         Log.i("myserver",sl);
+		    }
+		    else
+		    {
+		         int sc = response.getStatusLine().getStatusCode();
+		         String sl = response.getStatusLine().getReasonPhrase();
+		         Log.i("myserver",sl);
+		    }
 		
-		HttpContext localContext = new BasicHttpContext();
-		localContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
 		
-		HttpResponse response = client.execute(request, localContext);
-		*/
-		EditText edittext = (EditText) findViewById(R.id.editText1);
 		
-		httppost.setHeader("Cookie", ListCommentsActivity.sessionName+"="+ListCommentsActivity.sessionId);
-		List<NameValuePair> param = new ArrayList<NameValuePair>(2);
-		String message = "\"[\\\"";
-		message = message.concat(edittext.getText().toString());
-		message = message.concat("\\\"]\"");
-		Log.i("myserverattempt", message);
-		param.add(new BasicNameValuePair("answer", message));
-		param.add(new BasicNameValuePair("classID", classID));
-		httppost.setEntity(new UrlEncodedFormEntity(param, "UTF-8"));
-		Log.i("myhttp",httppost.toString());
-		HttpResponse response = client.execute(httppost);
 		
-		HttpEntity entity = response.getEntity();
-		String str = EntityUtils.toString(entity);
-		//String str = "{\"entityPrefix\": \"membership\", \"membership_collection\":[{\"id\":\"1\",\"locationReference\":\"hi\"},{\"id\":\"2\",\"locationReference\":\"ok\"}]}";
-		//String str = "{\"entityPrefix\": \"membership\", \"membership_collection\":\"hi\"}";
-		Log.i ("myserver",str);
 		open = str;
 		
 		
