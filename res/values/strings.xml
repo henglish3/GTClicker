@@ -23,5 +23,6 @@
     <string name="ntl_button_text">Note to Leader</string>
     <string name="refresh_button_text">Refresh</string>
     <string name="closed_button_text">Questioning is closed.</string>
+    <string name="submit_answer">Submit Answer</string>
 
 </resources>

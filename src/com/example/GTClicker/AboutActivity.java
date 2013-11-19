@@ -20,7 +20,7 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Button btnClose = (Button) findViewById(R.id.close);
+        Button btnClose = (Button) findViewById(R.id.menuBtn);
 
         btnClose.setOnClickListener(new View.OnClickListener() {
 

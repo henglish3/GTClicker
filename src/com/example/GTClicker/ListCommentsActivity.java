@@ -3,11 +3,6 @@ package com.example.GTClicker;
 
 import java.net.URI;
 import java.util.ArrayList;
-
-import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
@@ -25,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -35,17 +31,44 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class ListCommentsActivity extends ListActivity {
+	public final static String EXTRA_MESSAGE = "com.example.GTClicker.MESSAGE";
 	HttpClient client;
 	ArrayList<CommentModel> listItems;
 	ProgressDialog progressDialog;
 	private final String apiLocation = "http://dev.m.gatech.edu/w/clicker/c/api/sites/";
 	//private final String apiLocation = "http://dev.m.gatech.edu/d/mfogg3/w/GTNav/content/api/comment/";
 	
-	String sessionName;
-	String sessionId;
+	static String sessionName;
+	static String sessionId;
 	public void ShowPopUp (View v) {
+		
+	}
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		
+		Log.i("mytag","IT DID IT");
+		TextView textView = (TextView) v.findViewById(R.id.label);
+		Log.i("mytag","I DID IT");
+		
+		super.onListItemClick(l,v,position,id);
+		Intent intent = new Intent(getBaseContext(), classActivity.class);
+		String message = textView.getText().toString();
+		Log.i("mytag",message);
+		String message2 = findID(message);
+		Log.i("mytag",message2);
+		//String array[] = {message, message2};
+		intent.putExtra(EXTRA_MESSAGE, message);
+		intent.putExtra("classID", message2);
+		//Bundle extras = getIntent().getExtras();
+		
+		
+        startActivity(intent);
+		
 		
 	}
 	@Override
@@ -213,46 +236,29 @@ public class ListCommentsActivity extends ListActivity {
 		}
 		
 
+	
 	}
-
-
-    //Options menu stuff
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater blowUp = getMenuInflater();
-        blowUp.inflate(R.menu.rootmenu,menu);
-        return true;
-
+	
+	
+	public void makeClass(View view) {
+        Intent intent = new Intent(getBaseContext(), classActivity.class);
+        startActivity(intent);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case R.id.main:
-                NavUtils.navigateUpFromSameTask(this);
-                break;
-            case R.id.login:
-                Intent i2 = new Intent(this, loginActivity.class);
-                startActivity(i2);
-                break;
-            case R.id.aboutUS:
-                Intent i3 = new Intent(this, AboutActivity.class);
-                startActivity(i3);
-                break;
-            case R.id.preferences:
-
-                break;
-        }
-
-        return false;
-    }
-
-    //Menu Button
-    public void onMenuButtonClick(View view) {
-        this.openOptionsMenu();
-
-    }
+	public String findID (String className) {
+		String ID = "";
+		int x;
+		for (x=0;x<CommentsArrayAdapter.comment_list.size(); x++) {
+			Log.i("allClasses",CommentsArrayAdapter.comment_list.get(x).comment);
+			
+			if(CommentsArrayAdapter.comment_list.get(x).comment.startsWith(className)) {
+				Log.i("allClassesComp",className);
+				ID = CommentsArrayAdapter.comment_list.get(x).id;
+			}
+		}
+		
+		return ID;
+		
+	}
 	
 }
+

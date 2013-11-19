@@ -23,13 +23,13 @@
                 android:id="@+id/textView"
                 android:layout_gravity="center"
                 android:textColor="@color/gold"
-                android:layout_weight="6"/>
+                android:layout_weight="2"/>
         <Button
                 android:layout_width="@dimen/menu_btn_width"
                 android:layout_height="wrap_content"
                 android:text="@string/menu"
                 android:id="@+id/menuBtn"
-                android:onClick="onMenuButtonClick"
+                android:onClick="goToMenu"
                 android:layout_gravity="right|center_vertical"
                 android:layout_weight="1"/>
     </LinearLayout>
@@ -53,7 +53,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
 
-    <EditText android:id="@+id/class_code"
+    <EditText android:id="@+id/classcode"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:hint="Enter Class Code"
