@@ -1,3 +1,5 @@
+
+
 package com.example.GTClicker;
 
 import java.net.URI;
@@ -157,8 +159,11 @@ protected String doInBackground(String... params) {
 		    .endObject();
 
 		    StringEntity entity = new StringEntity(json.toString());
+		    //StringEntity entity = new StringEntity("answer=%5B%22workpls%22%5D&classId=XLS0816104242201308.201308");
 		    //StringEntity entity = new StringEntity("{\"answer\":\"[\"Oi\"]\",\"classId\":\"XLS0816104242201308.201308\"}");
 		    Log.i("myserverentry",entity.toString());
+		    //entity.setContentType("application/x-www-form-urlencoded");
+		    //entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/x-www-form-urlencoded"));
 		    entity.setContentType("application/json;charset=UTF-8");//text/plain;charset=UTF-8
 		    entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json;charset=UTF-8"));
 		    httpPut.setEntity(entity); 
@@ -169,7 +174,7 @@ protected String doInBackground(String... params) {
 		    
 		    HttpResponse response = httpClient.execute(httpPut);                     
 		    HttpEntity entity1 = response.getEntity(); 
-		    Log.i("myserv",EntityUtils.toString(entity));
+		    Log.i("mysend",EntityUtils.toString(entity));
 
 		    if(entity1 != null&&(response.getStatusLine().getStatusCode()==201||response.getStatusLine().getStatusCode()==200))
 		    {
@@ -178,6 +183,7 @@ protected String doInBackground(String... params) {
 		         
 		         String sl = response.getStatusLine().getReasonPhrase();
 		         Log.i("myserver",sl);
+		         Log.i("myserverresp",EntityUtils.toString(entity1));
 		    }
 		    else
 		    {
