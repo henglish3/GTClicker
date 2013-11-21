@@ -28,9 +28,8 @@
     <Button
             android:layout_width="@dimen/menu_btn_width"
             android:layout_height="wrap_content"
-            android:text="@string/menu"
-            android:id="@+id/menuBtn"
-            android:onClick="goToMenu"
+            android:text="Close"
+            android:id="@+id/closeBtn"
             android:layout_gravity="right|center_vertical"
             android:layout_weight="1"/>
         ></LinearLayout>

@@ -43,7 +43,6 @@ public class classActivity extends Activity  implements LocationListener {
         setContentView(R.layout.activity_class);
 
         TextView tv = (TextView) findViewById(R.id.textView);
-        Button btnClose = (Button) findViewById(R.id.menuBtn);
         Intent intent = getIntent();
         String className = intent.getStringExtra(ListCommentsActivity.EXTRA_MESSAGE);
         tv.setText(className);
@@ -55,14 +54,6 @@ public class classActivity extends Activity  implements LocationListener {
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
-        btnClose.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                //Closing SecondScreen Activity
-                finish();
-            }
-        });
 
         }
 
@@ -96,6 +87,45 @@ public class classActivity extends Activity  implements LocationListener {
     @Override
     public void onProviderDisabled(String provider) {
         Log.d("Latitude","status");
+    }
+
+    //Options menu stuff
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.rootmenu,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.main:
+                NavUtils.navigateUpFromSameTask(this);
+                break;
+            case R.id.login:
+                Intent i2 = new Intent(this, loginActivity.class);
+
+                break;
+            case R.id.aboutUS:
+                Intent i3 = new Intent(this, AboutActivity.class);
+                startActivity(i3);
+                break;
+            case R.id.preferences:
+
+                break;
+        }
+
+        return false;
+    }
+
+    //Menu Button
+    public void onMenuButtonClick(View view) {
+        this.openOptionsMenu();
+
     }
 
 }

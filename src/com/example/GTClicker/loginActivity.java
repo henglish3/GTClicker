@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.net.Uri;
-import android.widget.EditText;
+import android.support.v4.app.NavUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
 
 /**
  * User: henglish3
@@ -37,6 +41,45 @@ public class loginActivity extends Activity {
 
         Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://dev.m.gatech.edu/login/private?url=gtclicker://loggedin&sessionTransfer=window"));
         startActivity(myIntent);
+    }
+
+    //Options menu stuff
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater blowUp = getMenuInflater();
+        blowUp.inflate(R.menu.rootmenu,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.main:
+                NavUtils.navigateUpFromSameTask(this);
+                break;
+            case R.id.login:
+                Intent i2 = new Intent(this, loginActivity.class);
+                startActivity(i2);
+                break;
+            case R.id.aboutUS:
+                Intent i3 = new Intent(this, AboutActivity.class);
+                startActivity(i3);
+                break;
+            case R.id.preferences:
+
+                break;
+        }
+
+        return false;
+    }
+
+    //Menu Button
+    public void onMenuButtonClick(View view) {
+        this.openOptionsMenu();
+
     }
 
 
