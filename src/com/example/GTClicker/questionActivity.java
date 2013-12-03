@@ -1,14 +1,19 @@
 package com.example.GTClicker;
 
 import java.net.URI;
+import java.net.URLEncoder;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.app.NavUtils;
 import android.view.*;
+import android.widget.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
@@ -20,12 +25,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Button;
-import android.widget.RadioButton;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.PopupWindow;
 
 /**
  * User: henglish3
@@ -33,12 +33,15 @@ import android.widget.PopupWindow;
  * Time: 12:22 PM
  */
 public class questionActivity extends Activity {
+    protected LocationManager locationManager;
+    TextView txtLat;
 	HttpClient client;
 	String checkSub = "http://dev.m.gatech.edu/w/clicker/content/api/isopensubmissions/";
 	String getAns = "http://dev.m.gatech.edu/w/clicker/content/api/myanswers/";
 	String subAns = "http://dev.m.gatech.edu/w/clicker/content/api/answer/";
 	//String subAns = "http://dev.m.gatech.edu/w/usercomments/content/api/comment/31";
 	String classID = "";
+    Location loc;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class questionActivity extends Activity {
         setContentView(R.layout.activity_question);
         TextView tv = (TextView) findViewById(R.id.textView);
         Intent intent = getIntent();
-        String className = intent.getStringExtra(classActivity.EXTRA_MESSAGE);
+        String className = intent.getStringExtra(ListCommentsActivity.EXTRA_MESSAGE);
         tv.setText(className);
         Bundle extras = getIntent().getExtras();
         this.classID = extras.getString("classID");
@@ -60,6 +63,9 @@ public class questionActivity extends Activity {
         
         EditText edittext = (EditText) findViewById(R.id.editText1);
         edittext.setVisibility(View.GONE);
+
+        CheckBox gps = (CheckBox) findViewById(R.id.checkBox);
+        gps.setVisibility(View.GONE);
       
         //when play is clicked show stop button and hide play button
         //questionBtn.setVisibility(View.GONE);
@@ -72,7 +78,13 @@ public class questionActivity extends Activity {
                 
 
             }});
+
         questionBtn.setVisibility(View.GONE);
+
+        String classID = extras.getString("classID");
+        Log.i("mytagclass", classID);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        loc = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
             
 
 
@@ -124,50 +136,76 @@ protected String doInBackground(String... params) {
 	client = new DefaultHttpClient();
 	
 	try {
-			String str = "";
-		    //--This code works for updating a record from the feed--
-		    HttpPut httpPut = new HttpPut(subAns);
-		    EditText edittext = (EditText) findViewById(R.id.editText1);
-		    JSONStringer json = new JSONStringer()
-		    .object() 
-		       .key("answer").array().value(edittext.getText().toString()).endArray()
-		       .key("classId").value(classID)
-		    .endObject();
+        String str = "";
+        //--This code works for updating a record from the feed--
+        //HttpPost httpPut = new HttpPost(subAns);
+        HttpPost httpPut = new HttpPost(subAns);
+        EditText edittext = (EditText) findViewById(R.id.editText1);
+        JSONStringer json = new JSONStringer()
+                .object()
+                .key("answer").array().value(edittext.getText().toString()).endArray()
+                .key("classId").value(classID)
+                .endObject();
 
-		    StringEntity entity = new StringEntity(json.toString());
-		    //StringEntity entity = new StringEntity("{\"answer\":\"[\"Oi\"]\",\"classId\":\"XLS0816104242201308.201308\"}");
-		    Log.i("myserverentry",entity.toString());
-		    entity.setContentType("application/json;charset=UTF-8");//text/plain;charset=UTF-8
-		    entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json;charset=UTF-8"));
-		    httpPut.setEntity(entity); 
-		    httpPut.setHeader("Cookie", ListCommentsActivity.sessionName+"="+ListCommentsActivity.sessionId);
+        //StringEntity entity = new StringEntity(json.toString());
+        CheckBox GPS = (CheckBox) findViewById(R.id.checkBox);
+        String temp = edittext.getText().toString();
+        if(GPS.isChecked()) {
 
-		    // Send request to WCF service 
-		    DefaultHttpClient httpClient = new DefaultHttpClient();
-		    
-		    HttpResponse response = httpClient.execute(httpPut);                     
-		    HttpEntity entity1 = response.getEntity(); 
-		    Log.i("myserv",EntityUtils.toString(entity));
+            temp = temp+"@Lat:"+loc.getLatitude()+", Long:" + loc.getLongitude();
 
-		    if(entity1 != null&&(response.getStatusLine().getStatusCode()==201||response.getStatusLine().getStatusCode()==200))
-		    {
-		         //--just so that you can view the response, this is optional--
-		         int sc = response.getStatusLine().getStatusCode();
-		         
-		         String sl = response.getStatusLine().getReasonPhrase();
-		         Log.i("myserver",sl);
-		    }
-		    else
-		    {
-		         int sc = response.getStatusLine().getStatusCode();
-		         String sl = response.getStatusLine().getReasonPhrase();
-		         Log.i("myserver",sl);
-		    }
-		
-		
-		
-		
-		open = str;
+        }
+
+        StringEntity entity = new StringEntity("answer=%5B%22" + URLEncoder.encode(temp, "ISO-8859-1") + "%22%5D&classId=" + classID);
+        //StringEntity entity = new StringEntity("{\"answer\""[\"Oi\"]\",\"classId\""XLS0816104242201308.201308\"}");
+        //StringEntity entity = new StringEntity("{'answer':'[\"Oi\"]','classId':'XLS0816104242201308.201308'}");
+
+        //answer=%5B%22hi%22%5D&classId=XLS0816104242201308.201308
+        entity.setContentType("application/x-www-form-urlencoded");
+        entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/x-www-form-urlencoded"));
+        //entity.setContentType("application/json;charset=UTF-8");//text/plain;charset=UTF-8
+        //entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json;charset=UTF-8"));
+        httpPut.setEntity(entity);
+        Log.i("myserverentry",entity.toString());
+        httpPut.setHeader("Cookie", ListCommentsActivity.sessionName+"="+ListCommentsActivity.sessionId);
+        httpPut.setHeader("X-HTTP-Method-Override","PUT");
+        //httpPut.
+        // Send request to WCF service
+
+        //HttpParams para = new BasicHttpParams();
+        //para.setParameter("answer", "%5B%22sent%22%5D");
+        // para.setParameter("classId", classID);
+        // httpPut.setParams(para);
+        //httpPut.getParams().setParameter("classId", classID);
+        //httpPut.getParams().setParameter("answer", "Hmmmmmm");
+        //Log.i("mymy",(String) para.getParameter("answer"));
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        //cURL
+        HttpResponse response = httpClient.execute(httpPut);
+        HttpEntity entity1 = response.getEntity();
+        Log.i("mysend",EntityUtils.toString(entity));
+
+        if(entity1 != null&&(response.getStatusLine().getStatusCode()==201||response.getStatusLine().getStatusCode()==200))
+        {
+            //--just so that you can view the response, this is optional--
+            int sc = response.getStatusLine().getStatusCode();
+
+            String sl = response.getStatusLine().getReasonPhrase();
+            Log.i("myserver",sl);
+            //Log.i("myservs",response.ge)
+            Log.i("myserverresp",EntityUtils.toString(entity1));
+        }
+        else
+        {
+            int sc = response.getStatusLine().getStatusCode();
+            String sl = response.getStatusLine().getReasonPhrase();
+            Log.i("myserver",sl);
+        }
+
+
+
+
+        open = str;
 		
 		
 	} catch (Exception e) {
@@ -259,7 +297,7 @@ protected void onPostExecute(String result) {
 			TextView tv = (TextView) findViewById(R.id.prevSub);
 			String message = "No Previous Submission";
 			Log.i("mysubstill",result);
-		    if (result != "null")
+		    if ((result != "null")&&(!result.contains("\"")))
 		    {
 		    	 message = "Previous Submission: ";
 		    	 message = message.concat(result);
@@ -337,8 +375,11 @@ protected void onPostExecute(Integer result) {
     	 message = "Submissions are open.";
     	 Button questionBtn = (Button) findViewById(R.id.questionbtn);
     	 EditText edittext = (EditText) findViewById(R.id.editText1);
+         CheckBox gps = (CheckBox) findViewById(R.id.checkBox);
+         gps.setVisibility(View.VISIBLE);
          edittext.setVisibility(View.VISIBLE);
     	 questionBtn.setVisibility(View.VISIBLE);
+
     	 
     	 new prevSub().execute();
     } 
@@ -349,75 +390,7 @@ protected void onPostExecute(Integer result) {
 
 
 }
-    public void onRadioButtonClicked(View view) {
 
-        TextView t1 =(TextView)findViewById(R.id.textView1);
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.A:
-                if (checked)
-                    // Pirates are the best
-                    t1.setText("You answered A.");
-                    break;
-            case R.id.B:
-                if (checked)
-                    // Ninjas rule
-                    t1.setText("You answered B.");
-                    break;
-            case R.id.C:
-                if (checked)
-                    // Pirates are the best
-                    t1.setText("You answered C.");
-                    break;
-            case R.id.D:
-                if (checked)
-                    // Ninjas rule
-                    t1.setText("You answered D.");
-                    break;
-        }
-    }
-
-    public void changeAnswer(View v) {
-        Button btnOpenPopup = (Button)findViewById(R.id.questionbtn);
-        LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = layoutInflater.inflate(R.layout.popup, null);
-        final PopupWindow popupWindow = new PopupWindow(
-            popupView, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-
-            Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-            btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
-                    @Override
-                    public void onClick(View v) {
-                        // TODO Auto-generated method stub
-                        popupWindow.dismiss();
-                    }});
-
-                popupWindow.showAsDropDown(btnOpenPopup, 50, -30);
-
-    }
-    public void note(View v) {
-        Button btnOpenPopup = (Button)findViewById(R.id.ntlBtn);
-        LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = layoutInflater.inflate(R.layout.popup_ntl, null);
-        final PopupWindow popupWindow = new PopupWindow(
-                popupView, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-
-        Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-        btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                popupWindow.dismiss();
-            }});
-
-        popupWindow.showAsDropDown(btnOpenPopup, 50, -30);
-
-    }
 
     //Options menu stuff
     @Override
@@ -437,7 +410,7 @@ protected void onPostExecute(Integer result) {
                 NavUtils.navigateUpFromSameTask(this);
                 break;
             case R.id.login:
-                Intent i2 = new Intent(this, loginActivity.class);
+                Intent i2 = new Intent(this, Clicker.class);
 
                 break;
             case R.id.aboutUS:

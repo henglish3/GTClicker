@@ -44,10 +44,6 @@ public class Clicker extends Activity {
             case R.id.main:
                 NavUtils.navigateUpFromSameTask(this);
                 break;
-            case R.id.login:
-                Intent i2 = new Intent(this, loginActivity.class);
-
-                break;
             case R.id.aboutUS:
                 Intent i3 = new Intent(this, AboutActivity.class);
                 startActivity(i3);

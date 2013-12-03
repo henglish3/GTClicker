@@ -44,7 +44,7 @@ public class CommentsArrayAdapter extends ArrayAdapter<CommentModel> {
     public void makeClass(View view) {
         Log.i("mytag","this one");
         Context mycontext = this.getContext();
-        Intent myint = new Intent(mycontext, classActivity.class);
+        Intent myint = new Intent(mycontext, questionActivity.class);
         mycontext.startActivity(myint);
     }
    /* OnClickListener onclicklistener = new OnClickListener() {

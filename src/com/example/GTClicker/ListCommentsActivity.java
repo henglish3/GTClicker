@@ -3,24 +3,17 @@ package com.example.GTClicker;
 
 import java.net.URI;
 import java.util.ArrayList;
+
+import android.content.SharedPreferences;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.protocol.ClientContext;
-import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.cookie.BasicClientCookie;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -31,7 +24,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -41,10 +33,10 @@ public class ListCommentsActivity extends ListActivity {
 	ArrayList<CommentModel> listItems;
 	ProgressDialog progressDialog;
 	private final String apiLocation = "http://dev.m.gatech.edu/w/clicker/c/api/sites/";
-	//private final String apiLocation = "http://dev.m.gatech.edu/d/mfogg3/w/GTNav/content/api/comment/";
 	
 	static String sessionName;
 	static String sessionId;
+    String JSON;
 	public void ShowPopUp (View v) {
 		
 	}
@@ -56,15 +48,13 @@ public class ListCommentsActivity extends ListActivity {
 		Log.i("mytag","I DID IT");
 		
 		super.onListItemClick(l,v,position,id);
-		Intent intent = new Intent(getBaseContext(), classActivity.class);
+		Intent intent = new Intent(getBaseContext(), questionActivity.class);
 		String message = textView.getText().toString();
 		Log.i("mytag",message);
 		String message2 = findID(message);
 		Log.i("mytag",message2);
-		//String array[] = {message, message2};
 		intent.putExtra(EXTRA_MESSAGE, message);
 		intent.putExtra("classID", message2);
-		//Bundle extras = getIntent().getExtras();
 		
 		
         startActivity(intent);
@@ -114,92 +104,143 @@ public class ListCommentsActivity extends ListActivity {
 
 		@Override
 		protected ArrayList<CommentModel> doInBackground(String... params) {
-			
-			listItems = new ArrayList<CommentModel>();
-			client = new DefaultHttpClient();
-			while (progress_status < 100) {
 
-				progress_status += 1;
+            String User = "NA";
+            try {
+                URI api = new URI("http://dev.m.gatech.edu/widget/gtplaces/content/api/checkuser/");
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(api);
 
-				publishProgress(progress_status);
 
-			}
-			try {
-				URI api = new URI(apiLocation);
-				HttpClient client = new DefaultHttpClient();
-				HttpGet request = new HttpGet();
-				request.setURI(api);
-				
+
+                request.setHeader("Cookie", sessionName+"="+sessionId);
+
+                HttpResponse response = client.execute(request);
+
+                HttpEntity entity = response.getEntity();
+                User = EntityUtils.toString(entity);
+            } catch (Exception e) {
+                Log.e("log_tag", "Error in http connection: " + e.toString());
+                e.printStackTrace();
+            }
+
+            listItems = new ArrayList<CommentModel>();
+            client = new DefaultHttpClient();
+            while (progress_status < 100) {
+
+                progress_status += 1;
+
+                publishProgress(progress_status);
+
+            }
+            SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+            String restoredText = prefs.getString(User, null);
+            if (restoredText != null)
+            {
+                //String user = prefs.getString("lastUser", null);
+                //mSaved.setText(restoredText, TextView.BufferType.EDITABLE);
+                JSON = restoredText;
+                try {
+                    JSONArray dataArray = new JSONArray(JSON);
+                    int len;
+                    for (len = 0; len < dataArray.length(); len++) {
+                        JSONObject jsonObject = dataArray.getJSONObject(len);
+                        listItems.add(new CommentModel(jsonObject, 0));
+                        Log.i ("myloop1", Integer.toString(listItems.get(len).term));
+
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+
+            } else{
+                try {
+                    URI api = new URI(apiLocation);
+                    HttpClient client = new DefaultHttpClient();
+                    HttpGet request = new HttpGet();
+                    request.setURI(api);
+
 				/*
-				CookieStore cookieStore = new BasicCookieStore(); 
+				CookieStore cookieStore = new BasicCookieStore();
 				BasicClientCookie cookie = new BasicClientCookie(sessionName, sessionId);
-				cookieStore.addCookie(cookie); 
-				
+				cookieStore.addCookie(cookie);
+
 				HttpContext localContext = new BasicHttpContext();
 				localContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
-				
+
 				HttpResponse response = client.execute(request, localContext);
 				*/
-				
-				request.setHeader("Cookie", sessionName+"="+sessionId);
-				
-				HttpResponse response = client.execute(request);
-				
-				HttpEntity entity = response.getEntity();
-				String str = EntityUtils.toString(entity);
-				//String str = "{\"entityPrefix\": \"membership\", \"membership_collection\":[{\"id\":\"1\",\"locationReference\":\"hi\"},{\"id\":\"2\",\"locationReference\":\"ok\"}]}";
-				//String str = "{\"entityPrefix\": \"membership\", \"membership_collection\":\"hi\"}";
-				Log.i ("myinf",str);
-				
-				
-				try {
-					JSONObject JsonObj = new JSONObject(str);
-					JSONArray JsonArrayForResult = JsonObj.getJSONArray("site_collection");
-					Log.i ("myentry",JsonArrayForResult.toString());
-					//Log.i ("myterm",JsonArrayForResult.getJSONObject(0).getJSONObject("props").toString());
-					int i = 0;
-					int x = 0;
-					int max = 0;
-					
-					
-					for (i = 0; i < JsonArrayForResult.length(); i++) {
-						JSONObject jsonObject = JsonArrayForResult.getJSONObject(i);
-						listItems.add(new CommentModel(jsonObject));
-						Log.i ("myloop1", Integer.toString(listItems.get(i).term));
 
-					}
-					//Log.i ("myloop1", Integer.toString(listItems.size()));
-					i=0;
-					while (i<listItems.size()) {
-						if (listItems.get(i).term > max) {
-							max = listItems.get(i).term;
-							Log.i ("myloop1", Integer.toString(listItems.get(i).term));
-							Log.i ("myloop2",Integer.toString(max));
-						}
-						
-						i++;
-					}
-					x=listItems.size()-1;
-					while (x >= 0) {
-						if (listItems.get(x).term < max) {
-							listItems.remove(x);
-							//Log.i ("myloopno", Integer.toString(x));
-						}
-						//Log.i ("myloopny", Integer.toString(x));
-						x--;
-					}
-					//Log.i ("myloopna", Integer.toString(x));
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			} catch (Exception e) {
-				Log.e("log_tag", "Error in http connection: " + e.toString());
-				e.printStackTrace();
-			}
+                    request.setHeader("Cookie", sessionName+"="+sessionId);
 
-			return listItems;
+                    HttpResponse response = client.execute(request);
 
-		}
+                    HttpEntity entity = response.getEntity();
+                    String str = EntityUtils.toString(entity);
+                    //String str = "{\"entityPrefix\": \"membership\", \"membership_collection\":[{\"id\""1\",\"locationReference\""hi\"},{\"id\""2\",\"locationReference\""ok\"}]}";
+                    //String str = "{\"entityPrefix\": \"membership\", \"membership_collection\""hi\"}";
+                    Log.i ("myinf",str);
+
+
+                    try {
+                        JSONObject JsonObj = new JSONObject(str);
+                        JSONArray JsonArrayForResult = JsonObj.getJSONArray("site_collection");
+                        Log.i ("myentry",JsonArrayForResult.toString());
+                        //Log.i ("myterm",JsonArrayForResult.getJSONObject(0).getJSONObject("props").toString());
+                        int i = 0;
+                        int x = 0;
+                        int max = 0;
+
+
+                        for (i = 0; i < JsonArrayForResult.length(); i++) {
+                            JSONObject jsonObject = JsonArrayForResult.getJSONObject(i);
+                            listItems.add(new CommentModel(jsonObject));
+                            Log.i ("myloop1", Integer.toString(listItems.get(i).term));
+
+                        }
+                        //Log.i ("myloop1", Integer.toString(listItems.size()));
+                        i=0;
+                        while (i<listItems.size()) {
+                            if (listItems.get(i).term > max) {
+                                max = listItems.get(i).term;
+                                Log.i ("myloop1", Integer.toString(listItems.get(i).term));
+                                Log.i ("myloop2",Integer.toString(max));
+                            }
+
+                            i++;
+                        }
+                        x=listItems.size()-1;
+                        while (x >= 0) {
+                            if (listItems.get(x).term < max) {
+                                listItems.remove(x);
+                                //Log.i ("myloopno", Integer.toString(x));
+                            }
+                            //Log.i ("myloopny", Integer.toString(x));
+                            x--;
+                        }
+                        //Log.i ("myloopna", Integer.toString(x));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } catch (Exception e) {
+                    Log.e("log_tag", "Error in http connection: " + e.toString());
+                    e.printStackTrace();
+                }
+                JSONArray jsonArray = new JSONArray();
+                for (int i=0; i < listItems.size(); i++) {
+                    jsonArray.put(listItems.get(i).getJSONObject());
+                }
+                JSON = jsonArray.toString();
+                SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+                editor.putString(User, JSON);
+                editor.commit();
+            }
+            return listItems;
+
+        }
 
 		@Override
 		protected void onPostExecute(ArrayList<CommentModel> result) {
@@ -241,7 +282,7 @@ public class ListCommentsActivity extends ListActivity {
 	
 	
 	public void makeClass(View view) {
-        Intent intent = new Intent(getBaseContext(), classActivity.class);
+        Intent intent = new Intent(getBaseContext(), questionActivity.class);
         startActivity(intent);
     }
 	public String findID (String className) {

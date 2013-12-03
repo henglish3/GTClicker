@@ -21,21 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.GTClicker.DisplayMessageActivity"
-                  android:label="@string/title_activity_display_message">
-                  <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.example.GTClicker.Clicker" />
-                  </activity>
-
         <activity
                 android:name="com.example.GTClicker.AboutActivity"
                 android:label="@string/title_activity_about" >
-        </activity>
-
-        <activity android:name=".loginActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.example.GTClicker.Clicker"/>
         </activity>
 
         <activity android:name=".ListCommentsActivity">
@@ -54,18 +42,6 @@
         </activity>
 
         <activity android:name=".questionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.example.GTClicker.Clicker"/>
-        </activity>
-
-        <activity android:name=".classActivity" >
-            <intent-filter>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data
-                        android:host="loggedin"
-                        android:scheme="gtclicker" />
-            </intent-filter>
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                        android:value="com.example.GTClicker.Clicker"/>
         </activity>
